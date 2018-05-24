@@ -1,0 +1,31 @@
+<div id="leaderboard_div">
+  <img src="assets/leaderboard.gif" width="1000px" height="525px">
+  <h1 id="leaderboard_h1">Top Pilots</h1>
+
+  <h3 id="player_h3">Player</h3>
+  <h3 id="score_h3">Score</h3>
+  <div id="rank_div">
+    <h3 id="rank_h3">Rank</h3>
+    <p>1st</p>
+    <p>2nd</p>
+    <p>3rd</p>
+    <p>4th</p>
+    <p>5th</p>
+    <p>6th</p>
+    <p>7th</p>
+    <p>8th</p>
+    <p>9th</p>
+    <p>10th</p>
+  </div>
+  <div id="player_div">
+    <table>
+      <% @scores.each do |score| %>
+        <tr>
+          <td><p><%= score.playerName %></p></td>
+          <td><p><%= score.score %></p></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <p id="menuLeaderboard_p" class="main_buttons"><a href="/">Main Menu</a></p>
+</div>

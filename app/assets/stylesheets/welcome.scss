@@ -1,0 +1,221 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//Start welcome#index
+#holder
+{
+  position: absolute;
+  left: 375px;
+
+}
+#main_div
+{
+  position: absolute;
+  top: 27.5px;
+  left: 170.5px;
+}
+#secondry_div
+{
+  position: absolute;
+  top: 162.5px;
+  left: 300px;
+  width: 150px;
+  height: 200px;
+  text-align: center;
+}
+
+#beta_h3
+{
+  top: 10px;
+  left: 932px;
+  font-size: 20px;
+  position: absolute;
+  color: #b0e7fb;
+  margin: auto;
+  opacity: .45;
+}
+#d_h1
+{
+  top: 0px;
+  left: 75px;
+  font-size: 200px;
+}
+#num_h2
+{
+  top: 20px;
+  left: 315px;
+  font-size: 20px;
+}
+#oc_h1
+{
+  top: -85px;
+  left: 230px;
+  font-size: 175px;
+}
+.title
+{
+  position: absolute;
+  font-family: 'Mr De Haviland', cursive;
+  color: #de330c;
+  margin: auto;
+}
+
+#subTitle_p
+{
+  position: absolute;
+  top: 55px;
+  left: 225px;
+  font-family: 'Flavors', cursive;
+  font-size: 16px;
+  color: #fffdf7;
+  text-decoration: underline;
+}
+
+.main_buttons a:link
+{
+  font-family: 'VT323';
+  height: 35px;
+  width: 100px;
+  color: #DE330C;
+  background-color: #FFFDF7;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid #DE330C;
+  opacity: .85;
+}
+.main_buttons a:visited
+{
+  color: #DE330C;
+  background-color: #FFFDF7;
+  border: 2px solid #DE330C;
+}
+
+.main_buttons a:hover
+{
+  color: #b0e7fb;
+  background-color: black;
+  border: 6px solid #b0e7fb;
+  opacity: 1;
+}
+//End welcome#index
+
+//Start welcome#howTo
+#howTo_div
+{
+  width: 1000px;
+  height: 525px;
+  position: absolute;
+  background-color: #b0e7fb;
+  top: 27.5px;
+  border: 10px solid #de330c;
+  left: 170.5px;
+  border-radius: 100px;
+}
+#instructions_div
+{
+  position: absolute;
+  width: 400px;
+  height: 365px;
+  top: 35px;
+  left: 460px;
+  font-size: 24px;
+  font-family: 'VT323';
+  text-align: center;
+  color: #ff7f00;
+}
+#inner_div
+{
+  width: 900px;
+  height: 425px;
+  position: absolute;
+  background-color: #fffdf7;
+  top: 55px;
+  border: 5px dotted #de330c;
+  left: 55px;
+  border-radius: 50px;
+}
+#enemies_div
+{
+  font-family: 'VT323';
+  width: 275px;
+  height: 215px;
+  text-align: center;
+  float: left;
+  position: absolute;
+  top: 195px;
+  left: 30px;
+  color: #ff7f00;
+  background-color: #9c7c5d;
+  border: 2px solid  #ff7f00;
+}
+#enemies_div p
+{
+  background-color: #FFFDF7;
+  display: inline-block;
+  border: 2px solid  #ff7f00;
+}
+#enemies_p
+{
+  font-size: 32px;
+  position: absolute;
+  top: 5px;
+  left: 90.695px;
+  margin: auto;
+  color: #ff7f00;
+}
+#menuHowTo_p
+{
+  position: absolute;
+  top: 50px;
+  left: 810px;
+}
+#elite_p
+{
+  position: absolute;
+  top: 60px;
+  left: 183.695px;
+}
+#enemy_p
+{
+  position: absolute;
+  top: 60px;
+  left: 31.42px;
+}
+#titan_p
+{
+  position: absolute;
+  top: 175px;
+  left: 28px;
+}
+#goliath_p
+{
+  position: absolute;
+  top: 175px;
+  left: 180.5px;
+}
+#enemy_img
+{
+  position: absolute;
+  top: 50px;
+  left: 47.5px;
+}
+#elite_img
+{
+  position: absolute;
+  top: 35px;
+  left: 192.5px;
+}
+#titan_img
+{
+  position: absolute;
+  top: 115px;
+  left: 30px;
+}
+#goliath_img
+{
+  position: absolute;
+  top: 100px;
+  left: 175px;
+}
+//End welcome#howTo

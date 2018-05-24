@@ -1,0 +1,31 @@
+<script>
+function sound()
+{
+  document.getElementById("welcome_audio").volume = 0.05;
+}
+</script>
+<style>
+#chatter_vid
+{
+  visibility: hidden;
+}
+</style>
+<div id="main_div">
+  <img src="assets/main_menu.jpg" onload="sound()" width="1000px" height="525px">
+  <h1 id="d_h1" class="title">D</h1>
+	<h1 id="oc_h1" class="title">oc</h1>
+	<h2 id="num_h2" class="title">40</h2>
+  <p id=subTitle_p>cosmic marathon</p>
+  <h3 id=beta_h3>beta</h3>
+  <div id="secondry_div">
+    <p class="main_buttons"><a href="/scores/new">PLAY</a></p>
+    <p class="main_buttons"><a href="/howToPlay">HOW TO PLAY</a></p>
+    <p class="main_buttons"><a href="/scores">LEADERBOARDS</a></p>
+    <p class="main_buttons"><a href="default.aspS" target="_blank">SOCIAL HUB</a></p>
+    <p class="main_buttons"><a href="/login">ADMIN</a></p>
+  </div>
+</div>
+<audio id="welcome_audio" autoplay loop>
+  <source src="assets/GladysKnight-LicencetoKill.mp3" type="audio/mpeg">
+</audio>
+<iframe id="chatter_vid" width="560" height="315" src="https://www.youtube.com/embed/5tNIipVxoAk?autoplay=1&controls=0&loop=1&start=14&playlist=tgbNymZ7vqY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>

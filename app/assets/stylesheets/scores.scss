@@ -1,0 +1,163 @@
+// Place all the styles related to the scores controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+canvas
+      {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background: transparent;
+			}
+      #background
+      {
+				z-index: -2;
+			}
+			#main
+      {
+				z-index: -1;
+			}
+			#ship
+      {
+				z-index: 0;
+			}
+      .score
+      {
+				position: absolute;
+				top: 5px;
+				left: 480px;
+				color: #FF7F00;
+				font-family: Helvetica, sans-serif;
+				cursor: default;
+			}
+      .health
+      {
+				position: absolute;
+				top: 5px;
+				left: 5px;
+				color: #FF7F00;
+				font-family: Helvetica, sans-serif;
+				cursor: default;
+			}
+			#total
+			{
+				width: 225px;
+				height: 14px;
+				background-color: gray;
+				top: 2px;
+				border-radius: 30px;
+				position: absolute;
+				left: 70px;
+			}
+			#remaining
+			{
+				width: 210px;
+    		height: 8px;
+    		background-color: green;
+    		top: 3px;
+    		position: absolute;
+    		left: 7.5px;
+			}
+			.game-over
+      {
+				position: absolute;
+				top: 100px;
+				left: 210px;
+				color: #FF7F00;
+				font-family: Helvetica, sans-serif;
+				font-size: 30px;
+				cursor: default;
+				display: none;
+			}
+			.game-over span
+      {
+				font-size: 20px;
+				cursor: pointer;
+				position: relative;
+				left: 50px;
+			}
+			.game-over span:hover
+      {
+				color: #FFD700;
+			}
+			#score_form
+			{
+        text-align: center;
+        visibility: hidden;
+        top: 200px;
+        left: 100px;
+        position: absolute;
+			}
+
+//start leaderboard
+#leaderboard_div
+{
+  width: 1000px;
+  height: 525px;
+  position: absolute;
+  top: 27.5px;
+  left: 170.5px;
+  font-family: 'VT323';
+  color: #fffdf7;
+}
+#rank_div
+{
+  position: absolute;
+  top: 125px;
+  left: 334.19px;
+  height: 375px;
+}
+#rank_div p
+{
+  margin: auto;
+  font-size: 20px;
+  margin-bottom: 4.23px;
+}
+#player_div p
+{
+  margin: auto;
+  font-size: 20px;
+}
+#player_div
+{
+  position: absolute;
+  top: 155px;
+  left: 461.595px;
+}
+
+#leaderboard_h1
+{
+  position: absolute;
+  top: 0px;
+  font-size: 100px;
+  margin: auto;
+  left: 300px;
+}
+
+#player_h3
+{
+  position: absolute;
+  top: 125px;
+  font-size: 32px;
+  margin: auto;
+  left: 461.595px
+}
+#score_h3
+{
+  position: absolute;
+  top: 125px;
+  font-size: 32px;
+  margin: auto;
+  left: 545px;
+}
+#rank_h3
+{
+  font-size: 32px;
+  margin: auto;
+}
+
+#menuLeaderboard_p
+{
+  position: absolute;
+  top: 445px;
+  left: 448px;
+}

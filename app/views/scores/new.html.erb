@@ -1,0 +1,51 @@
+<div id="holder">
+<canvas id="background" width="600" height="360">
+			Your browser does not support canvas. Please try again with a different browser.
+		</canvas>
+    <!-- The canvas for all enemy ships and bullets -->
+		<canvas id="main" width="600" height="360"></canvas>
+    <!-- The canvas the ship uses (can only move up
+         one forth the screen.) -->
+		<canvas id="ship" width="600" height="360"></canvas>
+    <div class="score">SCORE: <span id="score"></span></div>
+    <div class="health">HEALTH: <div id="total"><div id="remaining"></div></div></div>
+		<div class="game-over" id="game-over">GAME OVER<p><span onclick="game.restart()">Restart</span></p></div>
+    <div id="score_form">
+    <%= form_with scope: :score, url: scores_path, local: true do |form| %>
+
+      <% if @score.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@score.errors.count, "error") %> prohibited
+            this from being saved:
+          </h2>
+          <ul>
+            <% @score.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <p>
+        <%= form.label :playerName %><br>
+        <%= form.text_field :playerName %>
+      </p>
+
+      <p>
+        <!--<input value= "score.innerHTML" type="text" name="score[score]" id="score_score">-->
+        <%= form.label :playerName %><br>
+        <%= form.hidden_field :score, :value => nil, id: 'hidden-score' %>
+
+      </p>
+
+      <p>
+        <%= form.submit %>
+      </p>
+
+    <% end %>
+
+    <%= link_to 'Back', root_path %>
+    </div>
+    <script src="/assets/main.js"></script>
+</div>
