@@ -1,0 +1,33 @@
+<h1>Edit update</h1>
+
+<%= form_with(model: @update, local: true) do |form| %>
+
+  <% if @update.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@update.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @update.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :version %><br>
+    <%= form.text_field :version %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

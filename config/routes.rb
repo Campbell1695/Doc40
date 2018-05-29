@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
-
   get '/howToPlay', to: 'welcome#howTo'
+  get '/socialhub', to: 'updates#index'
 
   get '/signup', to: 'admins#new'
   post '/signup',  to: 'admins#create'
@@ -10,7 +9,11 @@ Rails.application.routes.draw do
   post  '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
+  resources :updates
   resources :scores
   resources :admins
+
+
+  root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

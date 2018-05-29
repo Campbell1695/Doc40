@@ -1,0 +1,31 @@
+
+<h1>Listing update</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr>
+
+  <% @update.each do |update| %>
+    <tr>
+      <td><%= update.version %></td>
+      <td><%= update.description %></td>
+      <td><%= link_to 'Show', update_path(update) %></td>
+      <td><%= link_to 'Destroy', update_path(update),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    </table>
+  <% end %>
+
+
+  <form class="" action="/updates" enctype="multipart/form-data" method="POST">
+  			<h3 id="newShip_h3">Create New Update</h3>
+  			<p id="shipName_p">Version:</p>
+  		  <input id="shipName" type="text" name="[create]version">
+  			<p id="shipLocation_p">Location</p>
+        <input id="shipName" type="text" name="[create]description">
+        <input id="shipsSumbit_button" type="submit" name="" value="submit">
+  		</form>
