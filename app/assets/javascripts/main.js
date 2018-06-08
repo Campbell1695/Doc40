@@ -22,6 +22,7 @@ var game = new Game();
 function init()
 {
 	game.init();
+
 }
 
 /*
@@ -61,6 +62,62 @@ var imageRepository = new function()
     {
 			window.init();
 		}
+		else if(numLoaded == 14)
+	  {
+	    document.getElementById("loading").style.width = "300px";
+	  }
+		else if(numLoaded == 13)
+	  {
+	    document.getElementById("loading").style.width = "273px";
+	  }
+		else if(numLoaded == 12)
+	  {
+	    document.getElementById("loading").style.width = "252px";
+	  }
+		else if(numLoaded == 11)
+	  {
+	   	document.getElementById("loading").style.width = "231px";
+	  }
+		else if(numLoaded == 10)
+	  {
+	   	document.getElementById("loading").style.width = "210px";
+	  }
+		else if(numLoaded == 9)
+	  {
+	   	document.getElementById("loading").style.width = "189px";
+	  }
+		else if(numLoaded == 8)
+	  {
+	   	document.getElementById("loading").style.width = "168px";
+	  }
+		else if(numLoaded == 7)
+	  {
+	   	document.getElementById("loading").style.width = "147px";
+	  }
+		else if(numLoaded == 6)
+	  {
+	   	document.getElementById("loading").style.width = "126px";
+	  }
+		else if(numLoaded == 5)
+	  {
+	   	document.getElementById("loading").style.width = "105px";
+	  }
+		else if(numLoaded == 4)
+	  {
+	   	document.getElementById("loading").style.width = "84px";
+	  }
+		else if(numLoaded == 3)
+	  {
+	   	document.getElementById("loading").style.width = "63px";
+	  }
+		else if(numLoaded == 2)
+	  {
+	   	document.getElementById("loading").style.width = "42px";
+	  }
+		else if(numLoaded == 1)
+	  {
+	   	document.getElementById("loading").style.width = "21px";
+	  }
 	}
 	this.background.onload = function()
   {
@@ -145,10 +202,12 @@ function Drawable() {
 		// Default variables
 		this.x = x;
 		this.y = y;
+
     //Since we are adding images that no longer fill the entire canvas,
     //we need to set the height and width of each object to it’s associated image.
     this.width = width;
 		this.height = height;
+		document.getElementById("do").style.visibility = "visible";
 	}
 	this.speed = 0;
 	this.canvasWidth = 0;
@@ -169,6 +228,10 @@ function Drawable() {
 	this.health = function()
   {
 
+	};
+	this.loading = function()
+	{
+		var x = 0;
 	};
   this.isCollidableWith = function(object)
   {
@@ -196,6 +259,7 @@ function Background()
 		// If the image scrolled off the screen, reset
 		if (this.y >= this.canvasHeight)
 			this.y = 0;
+
 	};
 }
 // Set Background to inherit properties from Drawable
@@ -234,6 +298,7 @@ function Bullet(object)
 		else if (self === "bullet" && this.y <= 0 - this.height)
     {
 			return true;
+
 		}
 		else if (self === "enemyBullet" && this.y >= this.canvasHeight)
     {
@@ -295,6 +360,7 @@ function Bullet(object)
 			else if (self === "goliathBigBullet")
       {
 				this.context.drawImage(imageRepository.goliathBigBullet, this.x, this.y);
+
 			}
 			return false;
 		}
@@ -541,6 +607,8 @@ function Pool(maxSize)
    // the array with the designated object.
 	this.init = function(object)
   {
+document.getElementById("bp").style.visibility = "visible";
+
 		if (object == "bullet")
     {
 			for (var i = 0; i < size; i++)
@@ -570,6 +638,7 @@ function Pool(maxSize)
       {
 				var enemy = new Enemy();
 				enemy.init(0,0, imageRepository.enemy.width, imageRepository.enemy.height);
+
 				pool[i] = enemy;
 			}
 		}
@@ -580,6 +649,7 @@ function Pool(maxSize)
 				var elite = new Elite();
 				elite.init(0,0, imageRepository.elite.width, imageRepository.elite.height);
 				pool[i] = elite;
+
 			}
 		}
 		else if (object == "titan")
@@ -776,7 +846,8 @@ function Ship()
 		this.alive = true;
 		this.isColliding = false;
 		this.bulletPool.init("bullet");
-    this.lives = 7;
+    this.lives = 9;
+		document.getElementById("so").style.visibility = "visible";
 	}
 
 	this.draw = function()
@@ -829,29 +900,35 @@ function Ship()
 				game.healthDown.get();
 				this.draw();
 				this.isColliding = false;
-				if(this.lives == 6)
+				if(this.lives == 8)
   			{
-    			document.getElementById("remaining").style.width = "200px";
-  			} else if(this.lives == 5)
+    			document.getElementById("remaining").style.height = "200px";
+  			} else if(this.lives == 7)
   			{
-    			document.getElementById("remaining").style.width = "178px";
+    			document.getElementById("remaining").style.height = "175px";
+  			} else if(this.lives == 6)
+  			{
+    			document.getElementById("remaining").style.height = "150px";
+  			}else if(this.lives == 5)
+  			{
+    			document.getElementById("remaining").style.height = "125px";
   			} else if(this.lives == 4)
   			{
-    			document.getElementById("remaining").style.width = "125px";
+    			document.getElementById("remaining").style.height = "100px";
+					document.getElementById("remaining").style.backgroundColor = "yellow";
   			}else if(this.lives == 3)
   			{
-    			document.getElementById("remaining").style.width = "100px";
-    			document.getElementById("remaining").style.backgroundColor = "yellow";
+    			document.getElementById("remaining").style.height = "75px";
   			}else if(this.lives == 2)
   			{
-    			document.getElementById("remaining").style.width = "67px";
+    			document.getElementById("remaining").style.height = "50px";
+					document.getElementById("remaining").style.backgroundColor = "red";
   			}else if(this.lives == 1)
   			{
-    			document.getElementById("remaining").style.width = "21px";
-    			document.getElementById("remaining").style.backgroundColor = "red";
+    			document.getElementById("remaining").style.height = "25px";
   			}else if(this.lives == 0)
   			{
-					document.getElementById("remaining").style.width = "0px";
+					document.getElementById("remaining").style.height = "0px";
 					this.isColliding = true;
 					this.alive = false;
 					game.gameOver();
@@ -873,45 +950,57 @@ function Ship()
 			game.healthUp.get();
 			checkpoint = checkpoint * 2.5;
 
-	  	if(this.lives == 7)
+	  	if(this.lives == 9)
 	  	{
-	    	document.getElementById("remaining").style.width = "210px";
+	    	document.getElementById("remaining").style.height = "225px";
+	    	document.getElementById("remaining").style.backgroundColor = "green";
+	  	}
+			else if(this.lives == 8)
+	  	{
+				this.lives = 9;
+				document.getElementById("remaining").style.height = "225px";
+	    	document.getElementById("remaining").style.backgroundColor = "green";
+	  	}
+	  	else if(this.lives == 7)
+	  	{
+				this.lives = 9;
+				document.getElementById("remaining").style.height = "225px";
 	    	document.getElementById("remaining").style.backgroundColor = "green";
 	  	}
 	  	else if(this.lives == 6)
 	  	{
-				this.lives = 7;
-	    	document.getElementById("remaining").style.width = "210px";
+				this.lives = 8;
+				document.getElementById("remaining").style.height = "200px";
 	    	document.getElementById("remaining").style.backgroundColor = "green";
 	  	}
 	  	else if(this.lives == 5)
 	  	{
 				this.lives = 7;
-	    	document.getElementById("remaining").style.width = "210px";
+				document.getElementById("remaining").style.height = "175px";
 	    	document.getElementById("remaining").style.backgroundColor = "green";
 	  	}
 	  	else if(this.lives == 4)
 	  	{
 				this.lives = 6;
-	    	document.getElementById("remaining").style.width = "200px";
-	    	document.getElementById("remaining").style.backgroundColor = "green";
+				document.getElementById("remaining").style.height = "150px";
+				document.getElementById("remaining").style.backgroundColor = "green";
 	  	}
 	  	else if(this.lives == 3)
 	  	{
 				this.lives = 5;
-	    	document.getElementById("remaining").style.width = "178px";
-	    	document.getElementById("remaining").style.backgroundColor = "green";
+	    	document.getElementById("remaining").style.height = "125px";
+	    	document.getElementById("remaining").style.backgroundColor = "yellow";
 	  	}
 	  	else if(this.lives == 2)
 	  	{
 				this.lives = 4;
-	    	document.getElementById("remaining").style.width = "125px";
-	    	document.getElementById("remaining").style.backgroundColor = "green";
+	    	document.getElementById("remaining").style.height = "100px";
+	    	document.getElementById("remaining").style.backgroundColor = "yellow";
 	  	}
 	  	else if(this.lives == 1)
 	  	{
 				this.lives = 3;
-	    	document.getElementById("remaining").style.width = "100px";
+	    	document.getElementById("remaining").style.height = "75px";
 	    	document.getElementById("remaining").style.backgroundColor = "yellow";
 	  	}
 		}
@@ -1344,6 +1433,8 @@ function Game()
 		this.bgCanvas = document.getElementById('background');
     this.shipCanvas = document.getElementById('ship');
 		this.mainCanvas = document.getElementById('main');
+		document.getElementById("go").style.visibility = "visible";
+
 
 		// Test to see if canvas is supported
 		if (this.bgCanvas.getContext)
@@ -1398,6 +1489,7 @@ function Game()
       this.spawnWave();
       this.enemyBulletPool = new Pool(50);
 			this.enemyBulletPool.init("enemyBullet");
+
 
 			this.elitePool = new Pool(30);
 			this.elitePool.init("elite");
@@ -1489,6 +1581,7 @@ function Game()
 				x = 100;
 				y += spacer
 			}
+
 		}
 	}
 
@@ -1543,7 +1636,16 @@ function Game()
 	// Start the animation loop
 	this.start = function()
   {
-    document.getElementById("remaining").style.width = "210px";
+		document.getElementById("loadingScreen").style.visibility = "hidden";
+
+		document.getElementById("do").style.visibility = "hidden";
+		document.getElementById("so").style.visibility = "hidden";
+		document.getElementById("go").style.visibility = "hidden";
+		document.getElementById("gs").style.visibility = "hidden";
+		document.getElementById("sp").style.visibility = "hidden";
+		document.getElementById("bp").style.visibility = "hidden";
+
+    document.getElementById("remaining").style.height = "225px";
 		document.getElementById("remaining").style.backgroundColor = "green";
     this.ship.draw();
     this.backgroundAudio.play();
@@ -1598,6 +1700,7 @@ function checkReadyState()
 	if (game.gameOverAudio.readyState === 4 && game.backgroundAudio.readyState === 4)
   {
 		window.clearInterval(game.checkAudio);
+		document.getElementById("gs").style.visibility = "visible";
 		game.start();
 	}
 }
@@ -1612,11 +1715,14 @@ function SoundPool(maxSize)
 	var pool = [];
 	this.pool = pool;
 	var currSound = 0;
+	var x = 0;
 	/*
 	 * Populates the pool array with the given sound
 	 */
 	this.init = function(object)
   {
+
+document.getElementById("sp").style.visibility = "visible";
 		if (object == "laser") {
 			for (var i = 0; i < size; i++)
       {
@@ -1624,6 +1730,9 @@ function SoundPool(maxSize)
 				laser = new Audio("/assets/laser.wav");
 				laser.volume = .2;
 				laser.load();
+				x++;
+
+
 				pool[i] = laser;
 			}
 		}
@@ -1634,6 +1743,7 @@ function SoundPool(maxSize)
 				var explosion = new Audio("/assets/explosion.wav");
 				explosion.volume = .4;
 				explosion.load();
+
 				pool[i] = explosion;
 			}
 		}
@@ -1644,6 +1754,8 @@ function SoundPool(maxSize)
 				var enemyLaser = new Audio("/assets/enemyLaser.wav");
 				enemyLaser.volume = .1;
 				enemyLaser.load();
+				x++;
+
 				pool[i] = enemyLaser;
 			}
 		}
@@ -1654,6 +1766,8 @@ function SoundPool(maxSize)
 				var enemyLaser = new Audio("/assets/eliteLaser.wav");
 				eliteLaser.volume = .15;
 				eliteLaser.load();
+				x++;
+
 				pool[i] = eliteLaser;
 			}
 		}
@@ -1664,6 +1778,8 @@ function SoundPool(maxSize)
 				var titanLaser = new Audio("/assets/titanLaser.wav");
 				titanLaser.volume = .3;
 				titanLaser.load();
+				x++;
+
 				pool[i] = titanLaser;
 			}
 		}
@@ -1674,6 +1790,8 @@ function SoundPool(maxSize)
 				var goliathRockets = new Audio("/assets/goliathRockets.wav");
 				goliathRockets.volume = .4;
 				goliathRockets.load();
+				x++;
+
 				pool[i] = goliathRockets;
 			}
 		}
@@ -1684,6 +1802,8 @@ function SoundPool(maxSize)
 				var goliathFire = new Audio("/assets/goliathFire.wav");
 				goliathFire.volume = .65;
 				goliathFire.load();
+				x++;
+
 				pool[i] = goliathFire;
 			}
 		}
@@ -1694,6 +1814,8 @@ function SoundPool(maxSize)
 				var healthUp = new Audio("/assets/healthUp.wav");
 				healthUp.volume = .75;
 				healthUp.load();
+				x++;
+
 				pool[i] = healthUp;
 			}
 		}
@@ -1704,6 +1826,8 @@ function SoundPool(maxSize)
 				var healthDown = new Audio("/assets/healthDown.wav");
 				healthDown.volume = .75;
 				healthDown.load();
+				x++;
+
 				pool[i] = healthDown;
 			}
 		}

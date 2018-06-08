@@ -2,32 +2,137 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 canvas
-      {
-				position: absolute;
-				top: 0px;
-				left: 0px;
-				background: transparent;
-			}
-      #background
-      {
-				z-index: -2;
-			}
-			#main
-      {
-				z-index: -1;
-			}
-			#ship
-      {
-				z-index: 0;
+{
+	position: absolute;
+	top: 205px;
+	left: 375px;
+	background: transparent;
+}
+#background
+{
+	z-index: -2;
+}
+#main
+{
+	z-index: -1;
+}
+#ship
+{
+	z-index: 0;
+}
+#loadingScreen
+{
+	width: 600px;
+height: 360px;
+background-color: black;
+margin: auto;
+position: absolute;
+left: 375px;
+top: 205px;
+font-family: 'vt323';
+font-size: 100px;
+}
+#loadingOutside
+{
+	width: 320px;
+height: 40px;
+background-color: black;
+border: 15px solid white;
+position: absolute;
+left: 125px;
+top: 105.5px;
+}
+#loading
+{
+	width: 0px;
+	height: 25px;
+    background-color: red;
+    top: 128px;
+    position: absolute;
+    left: 149.5px;
+}
+
+#objects
+{
+	font-size: 15px;
+    color: white;
+    text-align: center;
+    width: 300px;
+    position: absolute;
+    top: 180px;
+    left: 150px;
+}
+.loaded
+{
+	font-family: 'vt323';
+	left: 200px;
+	position: absolute;
+	color: green;
+}
+#do
+{
+	top: 0px;
+	visibility: hidden;
+}
+#so
+{
+	top: 30px;
+	visibility: hidden;
+}
+#go
+{
+	top: 60px;
+	visibility: hidden;
+}
+#sp
+{
+	top: 120px;
+	visibility: hidden;
+}
+#bp
+{
+	top: 150px;
+	visibility: hidden;
+}
+#gs
+{
+	top: 90px;
+	visibility: hidden;
+}
+body
+{
+	background-color: black;
+}
+#loadingThree
+{
+        width: 0px;
+        height: 8px;
+        background-color: red;
+        top: 250px;
+
+        left: 7.5px;
+      }
+			#loading_p
+			{
+				margin: auto;
+position: absolute;
+top: 0px;
+left: 103.5px;
+color: white;
 			}
       .score
       {
 				position: absolute;
-				top: 5px;
-				left: 480px;
-				color: #FF7F00;
-				font-family: Helvetica, sans-serif;
-				cursor: default;
+top: 30px;
+left: 85px;
+color: #FF7F00;
+font-family: Helvetica, sans-serif;
+cursor: default;
+width: 105px;
+background-color: black;
+height: 115px;
+font-family: 'VT323';
+font-size: 20px;
 			}
       .health
       {
@@ -40,33 +145,42 @@ canvas
 			}
 			#total
 			{
-				width: 225px;
-				height: 14px;
-				background-color: gray;
-				top: 2px;
-				border-radius: 30px;
-				position: absolute;
-				left: 70px;
+				width: 25px;
+height: 250px;
+background-color: gray;
+top: 25px;
+border-radius: 30px;
+position: absolute;
+left: 55px;
 			}
 			#remaining
 			{
-				width: 210px;
-    		height: 8px;
-    		background-color: green;
-    		top: 3px;
-    		position: absolute;
-    		left: 7.5px;
+				width: 15px;
+height: 225px;
+background-color: green;
+top: 12.5px;
+border-radius: 5px;
+position: absolute;
+left: 5px;
+			}
+			#heart
+			{
+				position: absolute;
+top: 5px;
+left: 52.5px;
+width: 50px;
+height: 50px;
 			}
 			.game-over
       {
 				position: absolute;
-				top: 100px;
-				left: 210px;
-				color: #FF7F00;
-				font-family: Helvetica, sans-serif;
-				font-size: 30px;
-				cursor: default;
-				display: none;
+top: 337.5px;
+left: 585px;
+color: #FF7F00;
+font-family: Helvetica, sans-serif;
+font-size: 30px;
+cursor: default;
+display: none;
 			}
 			.game-over span
       {
@@ -83,11 +197,94 @@ canvas
 			{
         text-align: center;
         visibility: hidden;
-        top: 200px;
-        left: 100px;
-        position: absolute;
+				top: 0px;
+    left: 0px;
+    position: absolute;
+    color: #ff7300;
+				width: 142px;
+    height: 285px;
+    background-color: black;
 			}
-
+			input
+			{
+				width: 125px;
+			}
+#gameHeader_div
+{
+	position: absolute;
+	top: 30px;
+	left: 175px;
+	width: 1000px;
+	height: 175px;
+	    border-radius: 100px 100px 0px 0px;
+	background-color: black;
+}
+#pic
+{
+	opacity: 0.45;
+border-radius: 100px 100px 0px 0px;
+background-color: white;
+height: 175px;
+}
+#d
+{
+	top: -20px;
+    left: 75px;
+    font-size: 200px;
+}
+#oc
+{
+	top: -105px;
+    left: 230px;
+    font-size: 175px;
+}
+#num
+{
+	top: 0px;
+left: 315px;
+font-size: 20px;
+}
+#sub
+{
+	position: absolute;
+top: 35px;
+left: 225px;
+font-family: 'Flavors', cursive;
+font-size: 16px;
+color: #fffdf7;
+text-decoration: underline;
+}
+#beta
+{
+	top: 10px;
+left: 850px;
+font-size: 30px;
+position: absolute;
+color: #ff7f00;
+margin: auto;
+opacity: .5;
+}
+#gameLeaderboards_div
+{
+	position: absolute;
+	top: 205px;
+	left: 175px;
+}
+#gameStats_div
+{
+	position: absolute;
+	left: 975px;
+	top: 205px;
+}
+#screen
+{
+	width: 142px;
+height: 285px;
+background-color: black;
+position: absolute;
+top: 5px;
+left: 55px;
+}
 //start leaderboard
 #leaderboard_div
 {

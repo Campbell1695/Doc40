@@ -7,11 +7,11 @@ skip_before_action :verify_authenticity_token
 
   def create
     @update = Update.new(update_params)
-    @update.admin_id = session[:admin_id]
+
     if @update.save
     redirect_to "/socialhub"
   else
-    render '/socialhub'
+    render "/socialhub"
   end
 end
 

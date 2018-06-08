@@ -1,33 +1,45 @@
-<div id="holder">
-<canvas id="background" width="600" height="360">
-			Your browser does not support canvas. Please try again with a different browser.
-		</canvas>
-    <!-- The canvas for all enemy ships and bullets -->
-		<canvas id="main" width="600" height="360"></canvas>
-    <!-- The canvas the ship uses (can only move up
-         one forth the screen.) -->
-		<canvas id="ship" width="600" height="360"></canvas>
-    <div class="score">SCORE: <span id="score"></span></div>
-    <div class="health">HEALTH: <div id="total"><div id="remaining"></div></div></div>
-		<div class="game-over" id="game-over">GAME OVER<p><span onclick="game.restart()">Restart</span></p></div>
-    <div id="score_form">
-    <%= form_with scope: :score, url: scores_path, local: true do |form| %>
+<div id="gameArea_div">
 
-      <% if @score.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@score.errors.count, "error") %> prohibited
-            this from being saved:
-          </h2>
-          <ul>
-            <% @score.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
+	<div id="gameHeader_div">
+		<img id="pic"src="/assets/topimage.jpg" width="1000px" height="200px">
+		<h1 id="d" class="title">D</h1>
+		<h1 id="oc" class="title">oc</h1>
+		<h2 id="num" class="title">40</h2>
+	  <p id=sub>cosmic marathon</p>
+	  <h3 id=beta>beta</h3>
+	</div>
+
+	<div id="gameLeaderboards_div">
+		<img src="/assets/leftSide.jpg" width="200px" height="360px">
+
+		<div class="score">SCORE: <span id="score"></span></div>
+
+	</div>
+
+	<div id="gameStats_div">
+		<img src="/assets/healthSide.jpg" width="200px" height="360px">
+		<div id="screen">
+		<div class="health"><div id="total"><div id="remaining"></div></div></div>
+		<img id="heart"src="/assets/heart.png" width="35px" height="50px">
+
+		<div id="score_form">
+    	<%= form_with scope: :score, url: scores_path, local: true do |form| %>
+
+    	<% if @score.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@score.errors.count, "error") %> prohibited
+          this from being saved:
+        </h2>
+        <ul>
+          <% @score.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
       <% end %>
 
-      <p>
+      <p id="text">
         <%= form.label :playerName %><br>
         <%= form.text_field :playerName %>
       </p>
@@ -47,5 +59,39 @@
 
     <%= link_to 'Back', root_path %>
     </div>
+	</div>
+	</div>
+
+	<canvas id="background" width="600" height="360">
+				Your browser does not support canvas. Please try again with a different browser.
+	</canvas>
+	<!-- The canvas for all enemy ships and bullets -->
+	<canvas id="main" width="600" height="360"></canvas>
+
+	<!-- The canvas the ship uses (can only move up one forth the screen.) -->
+	<canvas id="ship" width="600" height="360"></canvas>
+
+
+		<div class="game-over" id="game-over">GAME OVER<p><span onclick="game.restart()">Restart</span></p></div>
+		<div id="loadingScreen">
+			<p id="loading_p">LOADING...</p>
+			<div id="loadingOutside"></div>
+			<div id="loading"></div>
+			<div id="objects">
+				<p>Drawing Object:<p>
+				<p id="do"class="loaded">loaded</p>
+				<p>Ship Object:<p>
+				<p id="so"class="loaded">loaded</p>
+				<p>Game Object:<p>
+				<p id="go"class="loaded">loaded</p>
+				<p>Game Sound:<p>
+				<p id="gs"class="loaded">loaded</p>
+				<p>Sound Pool:<p>
+				<p id="sp"class="loaded">loaded</p>
+				<p>Bullet Pool:<p>
+				<p id="bp"class="loaded">loaded</p>
+			</div>
+		</div>
+
     <script src="/assets/main.js"></script>
 </div>

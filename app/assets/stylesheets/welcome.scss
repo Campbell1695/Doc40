@@ -2,23 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //Start welcome#index
+.color{
+  background-color: black;
+  width: 1349px;
+  height: 625px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
 #holder
 {
   position: absolute;
   left: 375px;
-
 }
 #main_div
 {
   position: absolute;
-  top: 27.5px;
+  top: 55px;
   left: 170.5px;
 }
 #secondry_div
 {
   position: absolute;
-  top: 162.5px;
-  left: 300px;
+  top: 185.5px;
+  left: 260px;
   width: 150px;
   height: 200px;
   text-align: center;
