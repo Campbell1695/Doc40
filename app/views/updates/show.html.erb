@@ -7,3 +7,9 @@
   <strong>Text:</strong>
   <%= @update.version %>
 </p>
+
+<% if current_admin %>
+  <%= link_to 'admins back', admin_path(current_admin)%>
+<% end %>
+
+<p id=""><a href ="/">HOME</a></p>

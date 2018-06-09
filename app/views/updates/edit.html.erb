@@ -1,4 +1,6 @@
+<% if current_admin %>
 <h1>Edit update</h1>
+
 
 <%= form_with(model: @update, local: true) do |form| %>
 
@@ -31,3 +33,8 @@
   </p>
 
 <% end %>
+<%= link_to 'admins back', admin_path(current_admin)%>
+
+<% end %>
+
+<p id=""><a href ="/">HOME</a></p>

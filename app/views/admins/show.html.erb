@@ -1,3 +1,16 @@
 <%= @admin.adminName %>, <%= @admin.email %>
+<%= link_to "Settings", edit_admin_path(current_admin) %>
+<%= link_to "All events", updates_path, class: "btn btn-lg btn-primary" %>
 
 <%= link_to 'log out', logout_path(session), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<form class="" action="/updates" enctype="multipart/form-data" method="post">
+  <h3 id="">Create New Update</h3>
+  <p id="">Version:</p>
+  <input id="" type="text" name="[create]version">
+  <p id="">Location</p>
+  <input id="" type="text" name="[create]description">
+  <input id="" type="submit" name="" value="submit">
+</form>
+
+<p id=""><a href ="/">HOME</a></p>
