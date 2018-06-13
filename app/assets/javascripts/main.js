@@ -131,7 +131,7 @@ var imageRepository = new function()
   {
 		imageLoaded();
 	}
-  this.enemy.onload = function()
+	this.enemy.onload = function()
   {
 		imageLoaded();
 	}
@@ -298,7 +298,6 @@ function Bullet(object)
 		else if (self === "bullet" && this.y <= 0 - this.height)
     {
 			return true;
-
 		}
 		else if (self === "enemyBullet" && this.y >= this.canvasHeight)
     {
@@ -328,10 +327,11 @@ function Bullet(object)
     {
 			return true;
 		}
-		else {
+		else
+		{
 			if (self === "bullet")
-      {
-				this.context.drawImage(imageRepository.bullet, this.x, this.y);
+			{
+					this.context.drawImage(imageRepository.bullet, this.x, this.y);
 			}
 			else if (self === "enemyBullet")
       {
@@ -341,7 +341,7 @@ function Bullet(object)
       {
 				this.context.drawImage(imageRepository.eliteBullet, this.x, this.y);
 			}
-			if (self === "titanBullet")
+			else if (self === "titanBullet")
       {
 				this.context.drawImage(imageRepository.titanBullet, this.x, this.y);
 			}
@@ -607,29 +607,28 @@ function Pool(maxSize)
    // the array with the designated object.
 	this.init = function(object)
   {
-document.getElementById("bp").style.visibility = "visible";
+		document.getElementById("bp").style.visibility = "visible";
 
 		if (object == "bullet")
     {
 			for (var i = 0; i < size; i++)
       {
-				// Initalize the object
-				var bullet = new Bullet("bullet");
-				bullet.init(0,0, imageRepository.bullet.width, imageRepository.bullet.height);
-        bullet.collidableWith = "enemy";
-        bullet.collidableWith = "enemyBullet";
-				bullet.collidableWith = "elite";
-				bullet.collidableWith = "eliteBullet";
-				bullet.collidableWith = "titan";
-				bullet.collidableWith = "titanBullet";
-				bullet.collidableWith = "titanBigBullet";
-				bullet.collidableWith = "goliath";
-				bullet.collidableWith = "goliathBullet";
-				bullet.collidableWith = "goliathSecondaryBullet";
-				bullet.collidableWith = "goliathBigBullet";
-				bullet.type = "bullet";
+					var bullet = new Bullet("bullet");
+					bullet.init(0,0, imageRepository.bullet.width, imageRepository.bullet.height);
+					bullet.collidableWith = "enemy";
+	        bullet.collidableWith = "enemyBullet";
+					bullet.collidableWith = "elite";
+					bullet.collidableWith = "eliteBullet";
+					bullet.collidableWith = "titan";
+					bullet.collidableWith = "titanBullet";
+					bullet.collidableWith = "titanBigBullet";
+					bullet.collidableWith = "goliath";
+					bullet.collidableWith = "goliathBullet";
+					bullet.collidableWith = "goliathSecondaryBullet";
+					bullet.collidableWith = "goliathBigBullet";
+					bullet.type = "bullet";
 
-				pool[i] = bullet;
+					pool[i] = bullet;
 			}
 		}
 		else if (object == "enemy")
@@ -847,6 +846,7 @@ function Ship()
 		this.isColliding = false;
 		this.bulletPool.init("bullet");
     this.lives = 9;
+		this.special = 0;
 		document.getElementById("so").style.visibility = "visible";
 	}
 
@@ -934,7 +934,6 @@ function Ship()
 					game.gameOver();
   			}
 			}
-
 		if (KEY_STATUS.space && counter >= fireRate && !this.isColliding)
     {
 			this.fire();
@@ -942,10 +941,17 @@ function Ship()
 		}
 	};
 	var checkpoint = 1000;
+	var reload = 500;
 
 	this.health = function()
 	{
-		if (game.playerScore == checkpoint)
+		if (game.playerScore >= reload)
+		{
+			this.special = 25;
+			reload = reload * 2.5;
+
+		}
+		if (game.playerScore >= checkpoint)
 		{
 			game.healthUp.get();
 			checkpoint = checkpoint * 2.5;
@@ -1010,9 +1016,17 @@ function Ship()
 	 */
 	this.fire = function()
   {
-		this.bulletPool.getTwo(this.x+9.5, this.y, 4,
-		                       this.x+19.5, this.y, 4);
-		game.laser.get();
+		if (this.special > 0)
+		{
+			this.special--;
+			this.bulletPool.get(this.x+9.5, this.y, 7);
+		}
+		else
+		{
+			this.bulletPool.getTwo(this.x+9.5, this.y, 4,
+			                       this.x+19.5, this.y, 4);
+			game.laser.get();
+		}
 	};
 }
 Ship.prototype = new Drawable();
@@ -1025,7 +1039,7 @@ function Enemy()
 	var percentFire = .01; //controls how many bullets are fired
 	var chance = 0;
 	this.alive = false;
-  this.collidableWith = "bullet";
+	this.collidableWith = "bullet";
 	this.type = "enemy";
 	/*
 	 * Sets the Enemy values
@@ -1117,7 +1131,8 @@ function Elite() {
 	var percentFire = .01;
 	var chance = 0;
 	this.alive = false;
-  this.collidableWith = "bullet";
+	this.collidableWith = "bullet";
+
 	this.type = "elite";
 	/*
 	 * Sets the Enemy values
@@ -1206,8 +1221,7 @@ function Titan()
 {
 	var percentFire = .1; //controls how many bullets are fired
 	var chance = 0;
-	this.alive = false;
-  this.collidableWith = "bullet";
+	this.collidableWith = "bullet";
 	this.type = "titan";
 	/*
 	 * Sets the Enemy values
@@ -1311,7 +1325,8 @@ function Goliath()
 	var percentFire = .15; //controls how many bullets are fired
 	var chance = 0;
 	this.alive = false;
-  this.collidableWith = "bullet";
+	this.collidableWith = "bullet";
+
 	this.type = "goliath";
 	/*
 	 * Sets the Enemy values
@@ -1670,6 +1685,18 @@ function Game()
 		this.enemyPool.init("enemy");
 		this.spawnWave();
 		this.enemyBulletPool.init("enemyBullet");
+
+		this.elitePool.init("elite");
+		this.eliteBulletPool.init("eliteBullet");
+
+		this.titanPool.init("titan");
+		this.titanBulletPool.init("titanBullet");
+		this.titanBigBulletPool.init("titanBigBullet");
+
+		this.goliathPool.init("goliath");
+		this.goliathBulletPool.init("goliathBullet");
+		this.goliathSecondaryBulletPool.init("goliathSecondaryBullet");
+		this.goliathBigBulletPool.init("goliathBigBullet");
 
 		this.playerScore = 0;
 
