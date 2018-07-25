@@ -819,7 +819,7 @@ function Pool(maxSize)
 function Ship()
 {
 	this.speed = 3;
-	this.bulletPool = new Pool(30);
+	this.bulletPool = new Pool(50);
 	var fireRate = 15;
 	var counter = 0;
 	//Try an if statement
@@ -1019,7 +1019,8 @@ function Ship()
 		if (this.special > 0)
 		{
 			this.special--;
-			this.bulletPool.get(this.x+9.5, this.y, 7);
+			this.bulletPool.getTwo(this.x+9.5, this.y+3, 12,
+			                       this.x+19.5, this.y, 12);
 		}
 		else
 		{
